@@ -22,7 +22,15 @@ class Frames(object):
 		self.cost = cost
 		self.weight = weight
 
-
+#defining bicycle models
+class Models(object):
+	def __init__(self, name, wheels, frame, manufactuer):
+		self.name = name
+		self.wheels = wheels
+		self.frame = frame
+		self.manufactuer = manufactuer
+		self.weight = (wheels.weight *2) + frame.weight
+		self.cost = (wheels.cost *2) + frame.cost
 
 """instances go here"""
 
