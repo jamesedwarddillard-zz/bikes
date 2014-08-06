@@ -37,7 +37,6 @@ class Models(object):
 def wholesale(manufactured_cost, margin):
 	return manufactured_cost * (1+margin)
 
-
 #defining bicycle manufacturers class
 class Maker(object):
 	def __init__(self, name, profit_margin, catalog):
@@ -48,8 +47,15 @@ class Maker(object):
 			model.wholesale = wholesale(model.cost, profit_margin)
 			model.maker = self.name
 
+#defining bike shops class
 
-
+#defining customers class
+class Customer(object):
+	bikes = 0
+	def __init__ (self, name, funds):
+		self.name = name
+		self.funds = funds
+	#bike buying function
 
 
 
@@ -74,5 +80,5 @@ bike_list = [big_bike, light_bike]
 
 james_bikes = Maker("James's Bike Co.", 0.40, bike_list)
 
-for i in james_bikes.catalog:
-	print i.name, i.wholesale, i.maker
+joy = Customer('Joy', 1000)
+print joy.name, joy.funds, joy.bikes
