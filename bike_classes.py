@@ -80,5 +80,3 @@ class Customer(object):
 	#bike buying function
 
 
-
-print 'WORKED'
