@@ -48,6 +48,15 @@ class Maker(object):
 			model.maker = self.name
 
 #defining bike shops class
+class Bike_shops(object):
+	def __init__ (self, name, catalog, inventory):
+		self.name = name
+		self.catalog = catalog
+	#print profit function
+
+#defining buying function
+def bike_purchase(customer, shop, model):
+	pass
 
 #defining customers class
 class Customer(object):
