@@ -14,9 +14,9 @@ class Wheels(object):
 		self.weight = 1.0 #weight in pounds for all wheels		
 
 # creating three wheel instances
-smallwheels = Wheels('smallwheels', 50)
-mediumwheels = Wheels('mediumwheels', 100)
-bigwheels = Wheels('bigwheels', 150)
+smallwheel = Wheels('smallwheels', 50)
+mediumwheel = Wheels('mediumwheels', 100)
+bigwheel = Wheels('bigwheels', 150)
 
 #defining the frames class 
 class Frames(object):
@@ -29,3 +29,4 @@ class Frames(object):
 aluminum = Frames('aluminum', 50, 1.0)
 carbon = Frames('carbon', 125, 0.5)
 steel = Frames('steel', 40, 2.5)
+
