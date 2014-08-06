@@ -20,7 +20,12 @@ bigwheels = Wheels('bigwheels', 150)
 
 #defining the frames class 
 class Frames(object):
-	def __init__(self, cost, materials):
-		self.cost = cost
+	def __init__(self, materials, cost, weight):
 		self.materials = materials
-		weight = 2.0 #weight in pounds
+		self.cost = cost
+		self.weight = weight
+
+#creating three frame instances
+aluminum = Frames('aluminum', 50, 1.0)
+carbon = Frames('carbon', 125, 0.5)
+steel = Frames('steel', 40, 2.5)
