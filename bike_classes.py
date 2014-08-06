@@ -13,3 +13,7 @@ class Wheels(object):
 		self.cost = cost
 		self.weight = 1.0 #weight in pounds for all wheels		
 
+# creating three wheel instances
+smallwheels = Wheels('smallwheels', 50)
+mediumwheels = Wheels('mediumwheels', 100)
+bigwheels = Wheels('bigwheels', 150)
