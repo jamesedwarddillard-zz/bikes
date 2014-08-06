@@ -26,6 +26,7 @@ class Frames(object):
 class Models(object):
 	maker = str()
 	wholesale = int()
+	retail = int()
 	def __init__(self, name, wheels, frame):
 		self.name = name
 		self.wheels = wheels
@@ -49,14 +50,26 @@ class Maker(object):
 
 #defining bike shops class
 class Bike_shops(object):
-	def __init__ (self, name, catalog, inventory):
+	def __init__ (self, name, margin, inventory):
 		self.name = name
-		self.catalog = catalog
+		self.margin = margin
+		self.inventory = inventory
+
+
 	#print profit function
 
-#defining buying function
-def bike_purchase(customer, shop, model):
-	pass
+#creating bike purchase function
+def bike_purchase(model, number, inventory):
+	while True:
+		try:
+			inventory[model.name] += number
+			return inventory
+			break
+		except KeyError:
+			inventory[model.name] = number
+			return inventory
+			break
+
 
 #defining customers class
 class Customer(object):
@@ -69,7 +82,7 @@ class Customer(object):
 
 
 
-"""instances go here"""
+#scratch for testing
 
 # creating three wheel instances
 smallwheel = Wheels('smallwheels', 50)
@@ -83,11 +96,7 @@ steel = Frames('steel', 40, 2.5)
 
 # scratch for testing
 
-big_bike = Models('bigassbike', bigwheel, steel)
-light_bike = Models('airbike', smallwheel, carbon)
-bike_list = [big_bike, light_bike]
 
-james_bikes = Maker("James's Bike Co.", 0.40, bike_list)
 
-joy = Customer('Joy', 1000)
-print joy.name, joy.funds, joy.bikes
+
+
