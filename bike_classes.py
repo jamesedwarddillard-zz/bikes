@@ -81,22 +81,4 @@ class Customer(object):
 
 
 
-
-#scratch for testing
-
-# creating three wheel instances
-smallwheel = Wheels('smallwheels', 50)
-mediumwheel = Wheels('mediumwheels', 100)
-bigwheel = Wheels('bigwheels', 150)
-
-#creating three frame instances
-aluminum = Frames('aluminum', 50, 1.0)
-carbon = Frames('carbon', 125, 0.5)
-steel = Frames('steel', 40, 2.5)
-
-# scratch for testing
-
-
-
-
-
+print 'WORKED'
