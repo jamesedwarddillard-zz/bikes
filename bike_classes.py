@@ -17,3 +17,10 @@ class Wheels(object):
 smallwheels = Wheels('smallwheels', 50)
 mediumwheels = Wheels('mediumwheels', 100)
 bigwheels = Wheels('bigwheels', 150)
+
+#defining the frames class 
+class Frames(object):
+	def __init__(self, cost, materials):
+		self.cost = cost
+		self.materials = materials
+		weight = 2.0 #weight in pounds
