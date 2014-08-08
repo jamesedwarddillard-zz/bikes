@@ -24,19 +24,19 @@ class Frames(object):
 
 #defining bicycle models class
 class Models(object):
-	maker = str()
-	wholesale = int()
-	retail = int()
 	def __init__(self, name, wheels, frame):
 		self.name = name
 		self.wheels = wheels
 		self.frame = frame
 		self.weight = (wheels.weight *2) + frame.weight
 		self.cost = (wheels.cost *2) + frame.cost
+		self.maker = str()
+		self.wholesale = int()
+		self.retail = int()
 
-#creating a wholesale price function
-def wholesale(manufactured_cost, margin):
-	return manufactured_cost * (1+margin)
+#creating a mark up price function
+def markup(cost, margin):
+	return cost * (1+margin)
 
 #defining bicycle manufacturers class
 class Maker(object):
@@ -46,19 +46,19 @@ class Maker(object):
 		self.catalog = catalog
 		for model in catalog: 
 			model.name = model.name + " by " + self.name
-			model.wholesale = wholesale(model.cost, self.profit_margin)
+			model.wholesale = markup(model.cost, self.profit_margin)
 			model.maker = self.name
 
 #defining bike shops class
 class Bike_shops(object):
-	revenue = int()
-	cogs = int()
 	def __init__ (self, name, margin, inventory):
 		self.name = name
 		self.margin = margin
 		self.inventory = inventory
+		self.revenue = int()
+		self.cogs = int()
 		for item in inventory:
-			item[0].retail = wholesale(item[0].wholesale, self.margin)
+			item[0].retail = markup(item[0].wholesale, self.margin)
 	def profit_report(self):
 		profit = self.revenue - self.cogs
 		print self.name + "has made $" + str(profit) + " in profit to date"
@@ -75,19 +75,17 @@ def bike_purchase(item_number, shop, customer):
 	shop.cogs += shop.inventory[item_number][0].wholesale
 	
 	#transfers ownership of bike to the customer
-	existing_bikes = customer.bikes
-	existing_bikes.append(shop.inventory[item_number][0])
-	customer.bikes = existing_bikes
+	customer.bikes.append(shop.inventory[item_number][0])
 	#reduces bike from the shops inventory
 	shop.inventory[item_number][1] -= 1
 
 
 #defining customers class
 class Customer(object):
-	bikes = []
 	def __init__ (self, name, funds):
 		self.name = name
 		self.funds = funds
+		self.bikes = []
 	#bike buying function
 
 
