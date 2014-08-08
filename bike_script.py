@@ -47,12 +47,8 @@ John = Customer('Johnny', 2500)
 Eliza = Customer('Eliza', 10000)
 
 bike_purchase(1, bikes_r_us, Joy)
-print Joy.funds
+print bikes_r_us.revenue
+print bikes_r_us.cogs
 bike_purchase(3, bikes_r_us, Joy)
-print Joy.funds
-
-for i in Joy.bikes:
-	print "Joy owns " +i.name
-
-for i in bikes_r_us.inventory:
-	print i[0].name, i[1]
+print bikes_r_us.revenue
+print bikes_r_us.cogs

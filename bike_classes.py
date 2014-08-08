@@ -51,7 +51,8 @@ class Maker(object):
 
 #defining bike shops class
 class Bike_shops(object):
-	profit = int()
+	revenue = int()
+	cogs = int()
 	def __init__ (self, name, margin, inventory):
 		self.name = name
 		self.margin = margin
@@ -66,7 +67,9 @@ def bike_purchase(item_number, shop, customer):
 	item_number -= 1
 	#transfers $ from the customer
 	customer.funds -= shop.inventory[item_number][0].retail
-
+	#transfers $ to the shop
+	shop.revenue += shop.inventory[item_number][0].retail
+	shop.cogs += shop.inventory[item_number][0].wholesale
 	
 	#transfers ownership of bike to the customer
 	existing_bikes = customer.bikes
