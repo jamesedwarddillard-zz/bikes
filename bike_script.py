@@ -9,3 +9,13 @@ large_wheel = Wheels('large_wheel', 17)
 aluminum = Frames('aluminum', 20, 0.5)
 steel = Frames('steel', 7, 3.0)
 carbon = Frames('carbon', 30, 0.7)
+
+#creating bicycle models
+light = Models('light', small_wheel, aluminum)
+composite = Models('composite', medium_wheel, carbon)
+rough = Models('rough', large_wheel, steel)
+
+print light.weight
+print composite.cost
+print rough.maker
+print light.name
