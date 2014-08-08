@@ -47,8 +47,6 @@ John = Customer('Johnny', 2500)
 Eliza = Customer('Eliza', 10000)
 
 bike_purchase(1, bikes_r_us, Joy)
-print bikes_r_us.revenue
-print bikes_r_us.cogs
+bikes_r_us.profit_report()
 bike_purchase(3, bikes_r_us, Joy)
-print bikes_r_us.revenue
-print bikes_r_us.cogs
+bikes_r_us.profit_report()

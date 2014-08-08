@@ -59,6 +59,9 @@ class Bike_shops(object):
 		self.inventory = inventory
 		for item in inventory:
 			item[0].retail = wholesale(item[0].wholesale, self.margin)
+	def profit_report(self):
+		profit = self.revenue - self.cogs
+		print self.name + "has made $" + str(profit) + " in profit to date"
 
 
 
