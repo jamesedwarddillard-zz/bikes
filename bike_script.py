@@ -3,12 +3,12 @@ from bike_classes import *
 #creating the world of wheels available
 small_wheel = Wheels('small', 10)
 medium_wheel = Wheels('medium', 15)
-large_wheel = Wheels('large_wheel', 17)
+large_wheel = Wheels('large_wheel', 30)
 
 #creating the world of frames available
-aluminum = Frames('aluminum', 20, 0.5)
-steel = Frames('steel', 7, 3.0)
-carbon = Frames('carbon', 30, 0.7)
+aluminum = Frames('aluminum', 40, 0.5)
+steel = Frames('steel', 17, 3.0)
+carbon = Frames('carbon', 90, 0.7)
 
 #creating bicycle models 
 super_light = Models('super light', small_wheel, aluminum)
@@ -27,26 +27,33 @@ minion_bike_co = Maker('Minion Bike Co.', 0.2, minion_catalog)
 pig_bikes = Maker('Pig Bikes', 0.21, pig_catalog)
 
 #creating shop inventories
-be_stock_1 = [pig_catalog[0], 10]
-be_stock_2 = [minion_catalog[1], 10]
-be_stock_3 = [pig_catalog[2], 10]
-bike_emporium_inventory = [be_stock_1, be_stock_2, be_stock_3]
 
 bru_stock1 = [minion_catalog[0], 20]
 bru_stock2 = [pig_catalog[1], 20]
 bru_stock3 = [minion_catalog[2], 20]
-bikes_r_us_inventory = [bru_stock1, bru_stock2, bru_stock3]
+bru_stock4 = [pig_catalog[0], 10]
+bru_stock5 = [minion_catalog[1], 10]
+bru_stock6 = [pig_catalog[2], 10]
+bikes_r_us_inventory = [bru_stock1, bru_stock2, bru_stock3, bru_stock4, bru_stock5, bru_stock6]
 
 #creating bike shops
-bike_emporium = Bike_shops('Bike Emporium', .15, bike_emporium_inventory)
-bikes_r_us = Bike_shops('Bikes R Us', .10, bikes_r_us_inventory)
+bikes_r_us = Bike_shops('Bikes R Us', .20, bikes_r_us_inventory)
 
 #creating customers
-Joy = Customer('Joy', 2000)
-John = Customer('Johnny', 2500)
-Eliza = Customer('Eliza', 10000)
+Joy = Customer('Joy', 200)
+John = Customer('Johnny', 500)
+Eliza = Customer('Eliza', 1000)
+customers = [Joy, John, Eliza]
 
-bike_purchase(1, bikes_r_us, Joy)
-bikes_r_us.profit_report()
-bike_purchase(3, bikes_r_us, Joy)
-bikes_r_us.profit_report()
+#printing name and weight of each bike carried by the shop
+for bikes in bikes_r_us.inventory:
+	print bikes[0].name + "weighs approximately " + str(bikes[0].weight) + " pounds"
+
+#printing customer name and the bikes they can afford
+for person in customers: 
+	print person.name
+	budget = person.funds
+	for bikes in bikes_r_us.inventory:
+		if budget > bikes[0].retail:
+			print bikes[0].name + " costs " + str(bikes[0].retail)
+
