@@ -62,16 +62,18 @@ class Bike_shops(object):
 
 
 #creating bike purchase function
-def bike_purchase(model, number, inventory):
-	while True:
-		try:
-			inventory[model.name] += number
-			return inventory
-			break
-		except KeyError:
-			inventory[model.name] = number
-			return inventory
-			break
+def bike_purchase(item_number, shop, customer):
+	item_number -= 1
+	#transfers $ from the customer
+	customer.funds -= shop.inventory[item_number][0].retail
+
+	
+	#transfers ownership of bike to the customer
+	existing_bikes = customer.bikes
+	existing_bikes.append(shop.inventory[item_number][0])
+	customer.bikes = existing_bikes
+	#reduces bike from the shops inventory
+	shop.inventory[item_number][1] -= 1
 
 
 #defining customers class

@@ -45,3 +45,14 @@ bikes_r_us = Bike_shops('Bikes R Us', .10, bikes_r_us_inventory)
 Joy = Customer('Joy', 2000)
 John = Customer('Johnny', 2500)
 Eliza = Customer('Eliza', 10000)
+
+bike_purchase(1, bikes_r_us, Joy)
+print Joy.funds
+bike_purchase(3, bikes_r_us, Joy)
+print Joy.funds
+
+for i in Joy.bikes:
+	print "Joy owns " +i.name
+
+for i in bikes_r_us.inventory:
+	print i[0].name, i[1]
