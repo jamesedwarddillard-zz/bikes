@@ -36,3 +36,12 @@ bru_stock1 = [minion_catalog[0], 20]
 bru_stock2 = [pig_catalog[1], 20]
 bru_stock3 = [minion_catalog[2], 20]
 bikes_r_us_inventory = [bru_stock1, bru_stock2, bru_stock3]
+
+#creating bike shops
+bike_emporium = Bike_shops('Bike Emporium', .15, bike_emporium_inventory)
+bikes_r_us = Bike_shops('Bikes R Us', .10, bikes_r_us_inventory)
+
+#creating customers
+Joy = Customer('Joy', 2000)
+John = Customer('Johnny', 2500)
+Eliza = Customer('Eliza', 10000)

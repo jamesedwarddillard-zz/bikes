@@ -46,18 +46,20 @@ class Maker(object):
 		self.catalog = catalog
 		for model in catalog: 
 			model.name = model.name + " by " + self.name
-			model.wholesale = wholesale(model.cost, profit_margin)
+			model.wholesale = wholesale(model.cost, self.profit_margin)
 			model.maker = self.name
 
 #defining bike shops class
 class Bike_shops(object):
+	profit = int()
 	def __init__ (self, name, margin, inventory):
 		self.name = name
 		self.margin = margin
 		self.inventory = inventory
+		for item in inventory:
+			item[0].retail = wholesale(item[0].wholesale, self.margin)
 
 
-	#print profit function
 
 #creating bike purchase function
 def bike_purchase(model, number, inventory):
@@ -74,7 +76,7 @@ def bike_purchase(model, number, inventory):
 
 #defining customers class
 class Customer(object):
-	bikes = 0
+	bikes = []
 	def __init__ (self, name, funds):
 		self.name = name
 		self.funds = funds
