@@ -45,6 +45,7 @@ class Maker(object):
 		self.profit_margin = profit_margin
 		self.catalog = catalog
 		for model in catalog: 
+			model.name = model.name + " by " + self.name
 			model.wholesale = wholesale(model.cost, profit_margin)
 			model.maker = self.name
 
